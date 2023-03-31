@@ -1,33 +1,68 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import * as React from 'react';
+
+const myObject = [
+  {
+    title: 'React',
+    url: 'https://reactsjs.org/',
+    number: 1,
+    author: 'Michael Leppe'
+  },
+  {
+    title: 'Angular',
+    url: 'https://angularjs.org/',
+    number: 2,
+    author:'Maicol Jackson'
+  },
+  {
+    title: 'Vue',
+    url: 'https://vuejs.org/',
+    number: 3,
+    author:'Extra chromosome enjoyer'
+  }
+]
+
+
+
+function List() {
+  return (
+    <ul>
+      {myObject.map(function (item) {
+        return (
+          <li key={item.number}>
+            <span>
+              <a href={item.url}>Title(with url): {item.title}</a>
+            </span>
+            <br></br>
+            <span>
+              Author: {item.author}
+            </span>
+            <br></br>
+            <span>
+              Key: {item.number}
+            </span>
+            
+          </li>
+        )
+      })}
+    </ul>
+  )
+}
+
+
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div>
+      <h1>Hello World</h1>
+      <label htmlFor='search'>Search:</label>
+      <input id='search' type='text'/>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <List />
     </div>
   )
 }
